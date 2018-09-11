@@ -1,0 +1,107 @@
+{
+	"info": {
+		"name": "Homework1",
+		"_postman_id": "0336a079-bdde-b0b7-5ceb-6e01974f1d18",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HW1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c4c9c3ad-ecad-495f-ab58-4b6b7dfe6e0b",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody); ",
+							"var title = jsonData.items[0].volumeInfo.title; ",
+							"var id = jsonData.items[0].id; ",
+							"postman.setEnvironmentVariable(\"id\", id); ",
+							"console.log(\"title\" + title); ",
+							"var patt = /turing/i; ",
+							"var res = patt.test(title); ",
+							"console.log(res); ",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"turing\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"books",
+						"v1",
+						"volumes"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{book_title}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "HW1_pt2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c51dee64-dfcf-433e-acd5-bc5e1c0f02d7",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests['Contains ID from request'] = (data.id === pm.environment.get(\"id\"));",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"books",
+						"v1",
+						"volumes",
+						"{{id}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

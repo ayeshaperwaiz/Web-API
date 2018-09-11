@@ -1,0 +1,23 @@
+{
+  "name": "assignment3",
+  "version": "1.0.0",
+  "description": "assignment3 server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ayesha Perwaiz",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.2.0",
+    "mongodb": "^3.0.4",
+    "mongoose": "^5.0.9",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^3.0.1"
+  }
+}

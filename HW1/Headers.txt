@@ -1,0 +1,44 @@
+Alt-Svc →hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337; quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+Custom header. A server uses "Alt-Svc" header to indicate that its resources can also be accessed at a 
+different network location (host or port) or using a different protocol. 
+
+Cache-Control →private, max-age=0, must-revalidate, no-transform
+Tells all caching mechanisms from server to client whether they may cache this object. Used to specify 
+directives that must be obeyed by all caching mechanisms along the request response chain. 
+
+Content-Encoding →gzip
+The type of encoding used on the data.
+
+Content-Type →application/json; charset=UTF-8
+The media type of the body of the request.
+
+Date →Sat, 03 Feb 2018 01:57:05 GMT
+The date and time the message was originated/sent. 
+
+ETag →"f6QLsd8inUgRKJVNBqJ8xHnPb0w/vh7LbZVP9Uyw20KgjhV9v14uZn8"
+An identifier for a specific version of a resource, often a message digest.
+
+Expires →Sat, 03 Feb 2018 01:57:05 GMT
+Gives the date/time after which the response is considered stale.
+
+Server →GSE
+A name for the server 
+
+Transfer-Encoding →chunked
+The form of encoding used to safely transfer the entity to the user. 
+
+Vary →Origin
+Vary →X-Origin
+Tells downstream proxies how to match future request headers to decide whether 
+the cached response can be used rather than requesting a fresh one from the origin server.
+
+X-Content-Type-Options →nosniff
+The only defined value, "nosniff", prevents Internet Explorer from MIME-sniffing a response
+away from the declared content-type.
+
+X-Frame-Options →SAMEORIGIN
+Clickjacking protection: deny - no rendering within a frame, sameorigin - no rendering 
+if origin mismatch
+
+X-XSS-Protection →1; mode=block
+Cross-site scripting (XSS) filter 
